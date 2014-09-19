@@ -163,6 +163,14 @@ echo "========================================================================="
 
 }
 
+all(){
+ cpu
+ threads
+ io
+ memory
+ oltp
+ tpcc-mysql
+}
 
 a=$#
 if [[ $a -eq 0 ]]; then
@@ -177,6 +185,8 @@ This script is mysql benchmark v0.0.1:
   io 		io benchmark
   memory	memory benchmark
   oltp		mysql oltp benchmark
+  tpcc-mysql    mysql tpcc benchmark
+  all           all benchmark
 
 examples:
 #benchmark-test.sh cpu threads io memory oltp
@@ -186,10 +196,10 @@ Press Ctrl-C now if you want to exit
 
 EOF
 else
-  $1
-  $2
-  $3
-  $4
-  $5
+for i in $*
+do
+ $i
+done
+
 fi
 
