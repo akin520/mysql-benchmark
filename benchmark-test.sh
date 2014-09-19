@@ -9,7 +9,7 @@ if [[ $primer == "" ]];then
     primer=2000
 fi
 echo "=============================CPU Test===================================="
-$SYSBENCHDIR/sysbench --test=cpu --cpu-max-prime=2000 run
+$SYSBENCHDIR/sysbench --test=cpu --cpu-max-prime=$primer run
 echo "========================================================================="
 }
 
