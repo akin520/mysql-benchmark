@@ -52,7 +52,7 @@ elif [[ $# -eq 3 ]];then
   mysqlconn $ip $port 1
   mysqlconn $nip $nport 2
   difffile
-  printf "|%-35s|%40s|%40s|" "Variable_name" "$ip" "$nip"
+  printf "|%-35s|%40s|%40s|\n" "Variable_name" "$ip" "$nip"
   grep "$3" /tmp/var.log
 else
   show
