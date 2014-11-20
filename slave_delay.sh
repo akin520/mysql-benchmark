@@ -12,7 +12,7 @@ get_status(){
 }
 
 run_master(){
-  $MYSQLPATH/mysql -h$1 -P$2 -u$3 -p$4 -e "drop table test.heartbeat;CREATE TABLE test.heartbeat ( id int NOT NULL PRIMARY KEY, ts datetime NOT NULL );" 2>/dev/null
+  $MYSQLPATH/mysql -h$1 -P$2 -u$3 -p$4 -e "CREATE TABLE IF NOT EXISTS test.heartbeat ( id int NOT NULL PRIMARY KEY, ts datetime NOT NULL );" 2>/dev/null
   pt-heartbeat -D test --update -h$1 -P $2 -u$3 -p$4 --daemonize
 }
 
